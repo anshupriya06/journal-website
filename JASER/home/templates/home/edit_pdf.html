@@ -1,0 +1,46 @@
+{% extends "home/layout.html" %}
+{% block title %}Edit JASER PDF{% endblock title %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
+{% block content %}
+
+    <h2>Edit JASER PDF: {{ jaser.name }}</h2>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Display form errors if any -->
+        {% if form.errors %}
+            <div class="errorlist">
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            <li>{{ field.label }}: {{ field.errors }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <div>
+            <label for="name">Name:</label>
+            {{ form.name }}
+        </div>
+        
+        <div>
+            <label for="description">Description:</label>
+            {{ form.description }}
+        </div>
+        
+        <div>
+            <label for="pdf_file">Upload PDF:</label>
+            {{ form.pdf_file }}
+            <p>Current file: {{ jaser.pdf_file.url }}</p>
+        </div>
+        
+        <button type="submit">Update PDF</button>
+    </form>
+
+{% endblock %}

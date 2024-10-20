@@ -1,0 +1,14 @@
+{% extends "home/layout.html" %}
+{% block title %}Delete JASER PDF{% endblock title %}
+{% load static %}
+{% block content %}
+
+    <h2>Are you sure you want to delete "{{ jaser.name }}"?</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a href="{% url 'jaser_list' %}">Cancel</a>
+
+{% endblock %}

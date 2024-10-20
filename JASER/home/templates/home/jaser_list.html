@@ -1,0 +1,17 @@
+{% extends "home/layout.html" %}
+{% block title %}JASER List{% endblock title %}
+{% load static %}
+{% block content %}
+
+    <h2>Your Uploaded JASER PDFs</h2>
+    <ul>
+        {% for jaser in jasers %}
+            <li>
+                {{ jaser.name }} - 
+                <a href="{% url 'edit_jaser' jaser.id %}">Edit</a> | 
+                <a href="{% url 'delete_jaser' jaser.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

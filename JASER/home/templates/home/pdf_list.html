@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded PDFs</title>
+    <link rel="stylesheet" href="{% static 'home/css/pdf_list.css' %}">
+</head>
+<body>
+
+    <h2>Uploaded PDFs</h2>
+    
+    <ul>
+        {% for pdf in pdfs %}
+            <li>
+                <a href="{{ pdf.pdf_file.url }}">{{ pdf.name }}</a>
+                <p class="description">{{ pdf.description }}</p>
+                <small>Uploaded at: {{ pdf.uploaded_at|date:"F j, Y, g:i a" }}</small>
+            </li>
+        {% empty %}
+            <p>No PDFs uploaded yet.</p>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
