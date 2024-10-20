@@ -1,67 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%} {%endblock title%}Ancient website</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
-
-</head>
-
-<body>
-   
-    <nav>
-        <div class="main-logo">
-            <img src="static\home\images\logo.png" alt="logo">
-            <p>Journal of Ancient Science, Education & Research</p>
-        </div>
-        <div class="Frame-19161">
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Home</a>
-            </div>
-
-            <div class="dropdown">
-                <a href="#" class="dropbtn">About</a>
-                <div class="dropdown-content">
-                    <a href="">About the Journal</a>
-                    <a href="">Aims and Scope</a>
-                    <a href="">Editorial Team</a>
-                    <a href="">Advisory Board</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Policies</a>
-                <div class="dropdown-content">
-                    <a href="">Gidelines for Authors</a>
-                    <a href="">Open Acess Policy</a>
-                    <a href="">Publications</a>
-                    <a href="">Publication Ethics and Malpractice Statement </a>
-                    <a href="">Privacy Statement</a>
-                    <a href="">Disclaimer</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Call For Papers</a>
-            </div>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Archives</a>
-            </div>
-
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Contact</a>
-            </div>
-        </div>
-        <div class="group-19161">
-            <a href="">Login</a>
-            <button>Register</button>
-        </div>
-    </nav>
-
+{% extends "home/layout.html" %}
+{% block title %}Ancient website{% endblock title %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
+{% block content %}
 
     <div class="container">
-        <div class="left-sec">
+        <div class="left-sec" style="background-image: url('{% static 'home/images/image1.jpeg' %}');">
             <div class="frame8">
                 <div class="group-19164">
                     <div class="inside">
@@ -73,7 +19,7 @@
                         </p>
                         <div>
                             Welcome to the International Journal of Ancient Sciences, Education, and Research
-                            (IJASER), a peer-reviewed, open-access platform dedicated to the exploration and
+                            (JASER), a peer-reviewed, open-access platform dedicated to the exploration and
                             dissemination of knowledge related to ancient sciences and their relevance in modern
                             education and research.
                             <br>
@@ -87,7 +33,7 @@
                             <br>
                             We are committed to advancing educational perspectives by showcasing scholarly articles
                             that contribute to the understanding, teaching, and application of ancient sciences in
-                            the current era. IJASER serves as a global forum for educators, researchers, and
+                            the current era. JASER serves as a global forum for educators, researchers, and
                             practitioners to share insights, exchange ideas, and contribute to the growing body of
                             knowledge in these fields.
                             <br>
@@ -252,7 +198,5 @@
             </div>
         </div>
     </footer>
-    {%block body%} {%endblock body%}
-</body>
 
-</html>
+{% endblock %}
